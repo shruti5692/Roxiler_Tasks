@@ -1,12 +1,13 @@
-import React from 'react';
-import TransactionsTable from './components/Task_07'; // Adjust the path if necessary
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import TransactionsPage from './components/TransactionsPage';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Transactions List</h1>
-      <TransactionsTable />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<TransactionsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
