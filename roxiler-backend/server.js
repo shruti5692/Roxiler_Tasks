@@ -7,9 +7,7 @@ const bodyParser = require('body-parser');
 dotenv.config();
 
 const app = express();
-
-// Middleware
-app.use(bodyParser.json()); // Parse JSON request bodies
+app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
@@ -17,22 +15,21 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch((error) => console.error('MongoDB connection error:', error));
 
 // Import Routes
-const initializeRoutes = require('./tasks/Task_01'); // Route for initializing the database
-const transactionRoutes = require('./tasks/Task_02'); // Route for listing transactions
+const initializeRoutes = require('./tasks/Task_01'); 
+const transactionRoutes = require('./tasks/Task_02');
 const task03Routes = require('./tasks/Task_03');
-const task04Routes = require('./tasks/Task_04'); // Add the path for Task 04
-const task05Routes = require('./tasks/Task_05'); // Add the path for Task 05
-const task06Routes = require('./tasks/Task_06'); // Add the path for Task 06
+const task04Routes = require('./tasks/Task_04'); 
+const task05Routes = require('./tasks/Task_05'); 
+const task06Routes = require('./tasks/Task_06'); 
 
 
 // Use Routes
-app.use('/api', initializeRoutes); // Initialize the database
-app.use('/api', transactionRoutes); // Transactions related routes
+app.use('/api', initializeRoutes); 
+app.use('/api', transactionRoutes);
 app.use('/api', task03Routes);
-app.use('/api', task04Routes); // Register the routes under '/api'
-app.use('/api', task05Routes); // Register the routes under '/api'
+app.use('/api', task04Routes);
+app.use('/api', task05Routes); 
 app.use('/api', task06Routes); 
-
 
 
 // Global Error Handling Middleware

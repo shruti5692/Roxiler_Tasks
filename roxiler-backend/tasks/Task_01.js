@@ -1,13 +1,10 @@
 const express = require('express');
 const axios = require('axios');
-const Product = require('../models/Product'); // Ensure this path matches your project structure
-
+const Product = require('../models/Product'); 
 const router = express.Router();
 
-// Route to initialize the database with seed data
 router.get('/initialize', async (req, res) => {
     try {
-        // Fetch data from the third-party API
         const response = await axios.get('https://s3.amazonaws.com/roxiler.com/product_transaction.json');
         const products = response.data;
 
@@ -17,7 +14,7 @@ router.get('/initialize', async (req, res) => {
         }
 
         // Insert data into the MongoDB collection
-        await Product.deleteMany({}); // Optional: Clear existing data
+        await Product.deleteMany({});
         await Product.insertMany(products);
 
         res.status(200).json({ message: 'Database initialized with seed data' });

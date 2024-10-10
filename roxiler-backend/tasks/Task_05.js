@@ -1,12 +1,12 @@
 const express = require('express');
-const Product = require('../models/Product'); // Ensure the correct path to your Product model
+const Product = require('../models/Product'); 
 
 const router = express.Router();
 
 // Helper function to extract the month from dateOfSale
 const getMonthFromSaleDate = (date) => {
     const saleDate = new Date(date);
-    return saleDate.getMonth() + 1; // getMonth() returns 0-11, so we add 1 to match 1-12
+    return saleDate.getMonth() + 1; 
 };
 
 // Route to get unique categories and the number of items in each for the pie chart
@@ -25,7 +25,6 @@ router.get('/pie-chart', async (req, res) => {
             return getMonthFromSaleDate(product.dateOfSale) === parseInt(month);
         });
 
-        // Create an object to count categories
         const categoryCount = {};
 
         productsInSelectedMonth.forEach(product => {

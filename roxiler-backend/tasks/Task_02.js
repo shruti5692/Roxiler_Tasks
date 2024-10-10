@@ -1,5 +1,5 @@
 const express = require('express');
-const Product = require('../models/Product'); // Ensure this path is correct based on your project structure
+const Product = require('../models/Product');
 
 const router = express.Router();
 
@@ -13,11 +13,11 @@ router.get('/transactions', async (req, res) => {
         // If a search parameter is provided, apply search conditions on title, description, price, and category
         if (search) {
             query.$or = [
-                { title: { $regex: search, $options: 'i' } },        // Case-insensitive search on title
-                { description: { $regex: search, $options: 'i' } },  // Case-insensitive search on description
-                { category: { $regex: search, $options: 'i' } },     // Case-insensitive search on category
-                { price: !isNaN(Number(search)) ? Number(search) : undefined } // Exact match for price if it's a valid number
-            ].filter(condition => Object.values(condition)[0] !== undefined); // Ensure no undefined conditions
+                { title: { $regex: search, $options: 'i' } },        
+                { description: { $regex: search, $options: 'i' } },  
+                { category: { $regex: search, $options: 'i' } },    
+                { price: !isNaN(Number(search)) ? Number(search) : undefined } 
+            ].filter(condition => Object.values(condition)[0] !== undefined);
         }
 
         // Pagination settings
