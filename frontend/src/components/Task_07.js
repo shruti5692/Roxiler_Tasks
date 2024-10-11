@@ -15,7 +15,7 @@ const TransactionsTable = ({ selectedMonth }) => {
           page,
           perPage,
           search,
-          month: selectedMonth, // Use the month directly
+          month: selectedMonth,
         }
       });
 
@@ -43,19 +43,17 @@ const TransactionsTable = ({ selectedMonth }) => {
       {/* Transactions Table */}
       <table>
         <thead>
-          <tr>
-            <th>ID</th> {/* Added ID column */}
+          <tr> 
             <th>Title</th>
             <th>Description</th>
             <th>Price</th>
             <th>Category</th>
-            <th>Sold</th> {/* Added Sold column */}
+            <th>Sold</th>
           </tr>
         </thead>
         <tbody>
           {transactions.map((transaction) => (
-            <tr key={transaction.id}> {/* Using transaction.id */}
-              <td>{transaction.id}</td> {/* Display ID */}
+            <tr>
               <td>{transaction.title}</td>
               <td>{transaction.description}</td>
               <td>${transaction.price.toFixed(2)}</td> {/* Formatting price with dollar sign */}

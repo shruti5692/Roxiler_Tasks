@@ -11,7 +11,7 @@ const TransactionsStatistics = ({ selectedMonth }) => {
   const fetchStatistics = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/statistics', {
-        params: { month: selectedMonth } // Use the month directly
+        params: { month: selectedMonth } 
       });
 
       setStatistics({

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TransactionsTable from './Task_07';
 import SalesStatistics from './Task_08';
-import PriceRangeBarChart from './Task_09'; // Import the bar chart component
+import PriceRangeBarChart from './Task_09'; 
 
 const TransactionsPage = () => {
   const [selectedMonth, setSelectedMonth] = useState(3); // Default to March (3)

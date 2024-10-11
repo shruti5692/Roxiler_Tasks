@@ -6,7 +6,7 @@ const router = express.Router();
 // Helper function to extract the month from dateOfSale
 const getMonthFromSaleDate = (date) => {
     const saleDate = new Date(date);
-    return saleDate.getMonth() + 1; // getMonth() returns 0-11, so we add 1 to match 1-12
+    return saleDate.getMonth() + 1; 
 };
 
 // Route to get statistics for a selected month

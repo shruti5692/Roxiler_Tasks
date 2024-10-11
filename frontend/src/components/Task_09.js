@@ -1,4 +1,3 @@
-// BarChart.js
 import React, { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
 import axios from 'axios';
